@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Tue Feb 11 2014 01:24:42 GMT+0000 (UTC) -->
+<html data-wf-site="52f1a23308d1fc5e180000ab">
+<head>
+  <meta charset="utf-8">
+  <title>CSE 170 Group 2: Flashback - Sign up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/cse-170-group-2-flashback.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Montserrat:400,700","Varela Round:400","Great Vibes:400"]
+      }
+    });
+  </script>
+  <script>
+    if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
+  </script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
+  <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  <!--[if IE 8]><script>document.documentElement.className += ' w-ie8';</script><![endif]-->
+  <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51d2715929d9cfe03a000001/51e07282241660ce78000001_webclip-gallio.png">
+</head>
+<body class="accntbody">
+  <h1 class="agecategory">Sign up</h1>
+  <div class="w-form">
+    <form class="w-clearfix" name="email-form" data-name="Email Form" action="process-sign-up.pl">
+      <label class="field_label">Name:</label>
+      <input class="w-input" type="text" placeholder="Enter your name" name="name" required="required" data-name="Name"></input>
+      <label class="field_label">Birthday:</label>
+      <input class="w-input" type="text" placeholder="Enter your birthday (MM/DD/YYYY)" name="birthday" required="required" data-name="Birthday"></input>
+      <label class="field_label" for="name">E-mail address:</label>
+      <input class="w-input" type="email" placeholder="Enter your email address" name="email" data-name="Email"></input>
+      <label class="field_label" for="email">Password:</label>
+      <input class="w-input" type="password" placeholder="Enter your password" name="password" data-name="Password" required="required"></input>
+      <label class="field_label">Confirm password:</label>
+      <input class="w-input" type="password" placeholder="Enter your password again" name="confirm_password" required="required" data-name="Confirm_Password"></input>
+      <input class="w-button submit_button" type="submit" value="Submit" data-wait="Please wait..."></input><a class="link left_link" href="index.html">Cancel</a>
+    </form>
+    <div class="w-form-done">
+      <p>Thank you! Your submission has been received!</p>
+    </div>
+    <div class="w-form-fail"><a href="#">Text Link</a>
+      <p>Oops! Something went wrong while submitting the form :(</p>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/webflow.js"></script>
+</body>
+</html>
