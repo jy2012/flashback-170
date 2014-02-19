@@ -56,8 +56,8 @@ if ($memory_name eq "") {
     print $cgi->header;
     $tt->process('message.html', 
                     { message => "No memory name specified.",
-                      callback_link => "./your-$age_range.pl",
-                      callback_message => "Back" }) 
+                      callback_link => "./age-range.pl?age_range=$age_range",
+                      callback_message => "Try again?" }) 
 }
 
 else {
@@ -71,6 +71,6 @@ else {
     $tt->process('message.html', 
                     { message => "Memory added!",
                       callback_link => "./age-range.pl?age_range=$age_range",
-                      callback_message => "Back" }) 
+                      callback_message => "Back to $age_range" }) 
     or die($!);
 }

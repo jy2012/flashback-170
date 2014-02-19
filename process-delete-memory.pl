@@ -5,6 +5,7 @@
 use strict;
 use warnings;
 
+use Template;
 use DBI;
 use CGI;
 use Digest::MD5 qw(md5);
@@ -30,4 +31,15 @@ my $statement = $dbh->prepare("DELETE FROM memories
 
 $statement->execute(($userid, $memory_name, $age_range, $image_url)) or die $statement->errstr;
 
-print $cgi->redirect('./your-'.$age_range.'.pl');    
+my $tt = Template->new({
+        INCLUDE_PATH => './templates',
+        INTERPOLATE => 1,
+}) or die($!);
+
+#print $cgi->redirect('./your-'.$age_range.'.pl');    
+print $cgi->header;
+$tt->process('message.html', 
+                { message => "Memory deleted!",
+                  callback_link => "./age-range.pl?age_range=$age_range",
+                  callback_message => "Back" }) 
+or die($!);
