@@ -5,9 +5,10 @@
 use strict;
 use warnings;
 
+use Template;
 use DBI;
 use CGI;
-use Digest::MD5 qw(md5);
+use Digest::MD5 qw(md5 md5_hex);
 
 my $db_location = "./db/fb.sqlite";
 
@@ -32,19 +33,44 @@ mkdir $upload_dir unless -d $upload_dir;
 
 my $upload_filehandle = $cgi->upload('photo');
 
+my ($ext) = $filename =~ /(\.[^.]+)$/;
+$filename = md5_hex(localtime) . $ext; 
+
 if (defined $upload_filehandle) {
     open (my $up_out, ">$upload_dir/$filename") or die($!);
     binmode $up_out;
 
-    while (<$filename>) {
+    while (<$upload_filehandle>) {
         print $up_out $_;
     }
     close $up_out;
 }
 
-my $statement = $dbh->prepare("INSERT INTO memories (user_id, memory_name, image_url, age_range)  
-                                VALUES (?, ?, ?, ?)");
+my $tt = Template->new({
+        INCLUDE_PATH => './templates',
+        INTERPOLATE => 1,
+}) or die($!);
 
-$statement->execute(($userid, $memory_name, "$upload_dir/$filename", $age_range)) or die $statement->errstr;
 
-print $cgi->redirect('./your-'.$age_range.'.pl');    
+if ($memory_name eq "") {
+    print $cgi->header;
+    $tt->process('message.html', 
+                    { message => "No memory name specified.",
+                      callback_link => "./your-$age_range.pl",
+                      callback_message => "Back" }) 
+}
+
+else {
+    my $statement = $dbh->prepare("INSERT INTO memories (user_id, memory_name, image_url, age_range)  
+                                    VALUES (?, ?, ?, ?)");
+
+    $statement->execute(($userid, $memory_name, "$upload_dir/$filename", $age_range)) or die $statement->errstr;
+
+
+    print $cgi->header;
+    $tt->process('message.html', 
+                    { message => "Memory added!",
+                      callback_link => "./age-range.pl?age_range=$age_range",
+                      callback_message => "Back" }) 
+    or die($!);
+}

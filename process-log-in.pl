@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+use Template;
 use DBI;
 use CGI;
 use CGI::Cookie;
@@ -26,8 +27,18 @@ $statement->execute(($email,$password));
 
 my @results = $statement->fetchrow_array;
 
+my $tt = Template->new({
+        INCLUDE_PATH => './templates',
+        INTERPOLATE => 1,
+}) or die($!);
+
 if ((scalar @results) == 0) {
-    print  $cgi->redirect('./login-error.html');    
+    print $cgi->header;
+    $tt->process('message.html', 
+                    { message => "Incorrect e-mail/password combination.",
+                      callback_link => "./log-in.html",
+                      callback_message => "Try again?" }) 
+    or die($!);
 }
 else {
     my $userid = $results[0];
