@@ -24,6 +24,7 @@ my $tt = Template->new({
 my $user_id = $cgi->cookie('user_id');
 my $image_name = $cgi->param('image_name'); 
 my $age_range = $cgi->param('age_range'); 
+my $query = $cgi->param('query') // "";
 
 
 my $statement = $dbh->prepare("SELECT image_url FROM memories WHERE 
@@ -48,5 +49,6 @@ while (my $file = readdir($photo_dir)) {
 
 print $cgi->header;
 $tt->process('edit-memory.html', 
-                { memory_name => $image_name, image_url => $url , age_range => $age_range} )
+                { memory_name => $image_name, image_url => $url , age_range => $age_range, 
+                    query => $query } )
     or die($!);

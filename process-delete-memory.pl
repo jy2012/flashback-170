@@ -23,6 +23,7 @@ my $userid = $cgi->cookie('user_id');
 my $memory_name = $cgi->param('memory_name');
 my $age_range = $cgi->param('age_range');
 my $image_url = $cgi->param('image_url');
+my $query = $cgi->param('query');
 
 print STDERR "$memory_name $age_range $image_url\n";
 
@@ -36,10 +37,22 @@ my $tt = Template->new({
         INTERPOLATE => 1,
 }) or die($!);
 
+
 #print $cgi->redirect('./your-'.$age_range.'.pl');    
-print $cgi->header;
-$tt->process('message.html', 
-                { message => "Memory deleted!",
-                  callback_link => "./age-range.pl?age_range=$age_range",
-                  callback_message => "Back" }) 
-or die($!);
+
+if ($query eq "") {
+    print $cgi->header;
+    $tt->process('message.html', 
+                    { message => "Memory deleted!",
+                      callback_link => "./age-range.pl?age_range=$age_range",
+                      callback_message => "Back" }) 
+    or die($!);
+}
+else {
+    print $cgi->header;
+    $tt->process('message.html', 
+                    { message => "Memory deleted!",
+                      callback_link => "./process-search.pl?query=$query",
+                      callback_message => "Back" }) 
+    or die($!);
+}
