@@ -11,10 +11,21 @@ h1 {
   font-weight: 700;
 }
 h2 {
-  margin: 10px 0px;
-  font-size: 32px;
-  line-height: 36px;
-  font-weight: 700;
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+}
+h2 span {
+  color: white;
+  font: bold 24px/45px Helvetica, sans-serif;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+h2 span.spacer {
+  padding: 0 5;
 }
 h3 {
   margin: 10px 0px 1px;
@@ -45,6 +56,10 @@ p {
   margin-bottom: 5px;
   font-family:'Varela Round';
   color: #848999;
+}
+.image {
+  position: relative;
+  width: 100%;
 }
 .button {
   display: inline-block;
@@ -84,9 +99,9 @@ p {
 }
 .company {
   display: inline-block;
-  font-family: Montserrat, sans-serif;
-  color: white;
-  font-size: 31px;
+  font-family: 'Great Vibes', sans-serif;
+  color: black;
+  font-size: 45px;
   font-weight: 700;
 }
 .nav-column {
@@ -224,7 +239,7 @@ p {
     padding-right: 11px;
   }
   .section.header {
-    background-color: #2c55c7;
+    background-color: white;
   }
   .section.hero {
     padding-right: 15px;
@@ -272,8 +287,8 @@ p {
     background-color: #6e7b8b;
     opacity: 1;
     color: white;
-    font-size: 10px;
-    line-height: 0px;
+    font-size: 18px;
+    line-height: 5px;
     font-weight: 400;
     letter-spacing: 0px;
     text-indent: -15px;
@@ -301,7 +316,7 @@ p {
     background-color: white;
   }
   .iconmenu {
-    font-size: 40px;
+    font-size: 50px;
     line-height: 0px;
     text-indent: -5px;
   }
