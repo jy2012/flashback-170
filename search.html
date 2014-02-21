@@ -37,7 +37,8 @@
   </div>
   <h1 class="agecategory">Search</h1>
   <div class="w-form">
-    <form class="w-clearfix" name="email-form" data-name="Email Form" data-redirect="/search-results">
+    <form class="w-clearfix" name="email-form" data-name="Email Form" action="process-search.pl" method="POST" enctype="multipart/form-data">
+      <label class="field_label" for="query">Enter all or part of a memory name:</label>
       <input class="w-input" type="text" placeholder="Enter your query" name="query" data-name="query"></input>
       <input class="w-button submit_button" type="submit" value="Submit" data-wait="Please wait..."></input>
     </form>
