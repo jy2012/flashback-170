@@ -47,7 +47,7 @@ elsif ($name eq "") {
     or die($!);
 }
 
-elsif (!($birthday =~ m/(\d{6})/)) {
+elsif (!($birthday =~ m/^\d{1,2}\/\d{1,2}\/\d{4}$/)) {
     print $cgi->header;
     $tt->process('message.html', 
                     { message => "Invalid birthday.",

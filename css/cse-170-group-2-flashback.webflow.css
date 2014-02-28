@@ -22,7 +22,7 @@ h2.home_title {
   top: 200px;
   left: 0;
   width: 100%;
-  top: 25%;
+  top: 10%;
 }
 
 h2 span {
@@ -318,8 +318,9 @@ p {
   .agecategory {
     font-family:'Great Vibes', cursive;
     color: black;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 40px;
+    word-wrap: break-word;
   }
   .accntbody {
     background-color: white;
