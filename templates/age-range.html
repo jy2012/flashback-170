@@ -42,7 +42,7 @@
   
     [% IF images.size > 0 %]
     [% FOREACH image IN images %] 
-        <a href="edit_memory.pl?image_name=[% image.name %]&age_range=[% age_range %]"><img class="memory_img" src="[% image.url %]" /></a>
+        <a href="edit_memory.pl?image_name=[% image.name %]&age_range=[% age_range %]"><img class="memory_img pic" src="[% image.url %]" /></a>
     [% END %]
     [% ELSE %]
       <h1 class="agecategory">You haven't uploaded any memories!</h1>
