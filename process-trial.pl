@@ -39,10 +39,10 @@ sub check_birthday {
 
 my $cgi = CGI->new;
 
-my $name = "random person " . substr(md5_hex(localtime), -4);
+my $name = "random person [" . $cgi->remote_host . "] (" . substr(md5_hex(localtime), -4) . ")";
 my $birthday = today();
-my $email = substr(md5_hex(localtime), -8) . "\@test.com";
-my $password = substr(md5_hex(localtime), -8);
+my $email = substr(md5_hex(localtime), -4) . "\@flashback.com";
+my $password = substr(md5_hex(localtime), -4);
 
 my $db_location = "./db/fb.sqlite";
 
@@ -82,4 +82,10 @@ foreach my $age_range (("youth", "20s", "30s", "40s", "50s", "60s", "70s", "80s"
     mkdir $upload_dir."/$age_range" unless -d $upload_dir."/$age_range";
 }
 
-print  $cgi->redirect(-uri => './your-brain.html', -cookie=>$cookie);    
+#print  $cgi->redirect(-uri => './your-brain.html', -cookie=>$cookie);    
+print $cgi->header(-cookie=>$cookie);
+$tt->process('display-trial-login.html', 
+                { email => $email,
+                  password => $password 
+                 }) 
+or die($!);

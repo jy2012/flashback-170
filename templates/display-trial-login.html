@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Tue Feb 11 2014 01:24:41 GMT+0000 (UTC) -->
+<!-- Last Published: Tue Feb 11 2014 01:24:42 GMT+0000 (UTC) -->
 <html data-wf-site="52f1a23308d1fc5e180000ab">
 <head>
   <meta charset="utf-8">
-  <title>CSE 170 Group 2: Flashback - Search Results</title>
+  <title>CSE 170 Group 2: Flashback</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/webflow.css">
@@ -26,29 +26,13 @@
   <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51d2715929d9cfe03a000001/51e07282241660ce78000001_webclip-gallio.png">
 </head>
 <body class="accntbody">
-  <div class="w-nav menubar" data-collapse="tiny" data-animation="default" data-duration="400" data-contain="1">
-    <div class="w-container">
-      <nav class="w-nav-menu navmenu" role="navigation"><a class="w-nav-link homelink" href="your-brain.html">Home</a><a class="w-nav-link searchlink" href="search.html">Search</a><a class="w-nav-link settingslink" href="your-settings.html">Settings</a>
-        <a
-        class="w-nav-link helplink" href="help-guide.html">Help</a><a class="w-nav-link logoutlink" href="index.html">Log Out</a>
-      </nav>
-      <div class="w-nav-button menubutton">
-        <div class="w-icon-nav-menu iconmenu"></div>
-      </div>
-
-    </div>
-  </div>
-  <h1 class="agecategory">Results for "[% query %]":</h1><hr size="3" noshade color="#6e7b8b">
+  <h3 class="agecategory">Your temporary e-mail:</h3>
+  <h4 >[% email %]</h3>
   
-    [% IF images.size > 0 %]
-    [% FOREACH image IN images %] 
-        <a href="edit_memory.pl?image_name=[% image.name %]&age_range=[% image.age_range %]&query=[% query %]"><img class="memory_img" height=auto width=320px src="[% image.url %]" /></a>
-    [% END %]
-    [% ELSE %]
-      <h1 class="agecategory">No results.</h1>
-    [% END %]
-    <a class="button nav" href="search.html">Search again</a>
-    <a class="button nav" href="your-brain.html">Back to your brain</a>
+  <h3 class="agecategory">Your temporary password:</h3>
+  <h4>[% password %]</h3>
+  
+  <a class="button nav" href="your-brain.html">Continue</a>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow.js"></script>
 </body>

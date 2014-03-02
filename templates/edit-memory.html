@@ -25,18 +25,18 @@
   <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51d2715929d9cfe03a000001/51e07282241660ce78000001_webclip-gallio.png">
 </head>
 <body class="accntbody">
-  <h1 class="agecategory">[% memory_name %]</h1>
+  <h1 class="agecategory">[% memory_name %]</h1><hr size="3" noshade color="#6e7b8b">
   <div class="w-form">
-    <img class="memory_img" src="[% image_url %]"/> 
     <form class="w-clearfix" name="email-form" data-name="Email Form" data-redirect="/your-brain" action="process-delete-memory.pl" method="post">
-      <input type="hidden" name="memory_name" value="[% memory_name %]"/>
-      <input type="hidden" name="image_url" value="[% image_url %]"/>
-      <input type="hidden" name="age_range" value="[% age_range %]"/>
-      <input type="hidden" name="query" value="[% query %]"/>
-      <label class="field_label" for="name">Type "delete" to delete this memory:</label>
-      <input class="w-input" type="text" placeholder="..." name="delete" data-name="Email"></input><a class="left_link link" href="age-range.pl?age_range=[% age_range %]">Cancel</a>
-      <input class="w-button submit_button" type="submit" value="Delete" data-wait="Please wait..."></input>
-    </form>
+          <input type="hidden" name="memory_name" value="[% memory_name %]"/>
+                <input type="hidden" name="image_url" value="[% image_url %]"/>
+                      <input type="hidden" name="age_range" value="[% age_range %]"/>
+                            <input type="hidden" name="query" value="[% query %]"/>
+                                  
+                                        <input class="w-button submit_button" type="submit" value="Delete" data-wait="Please wait..."></input>
+                                              <a class="left_link link" href="age-range.pl?age_range=[% age_range %]">BACK</a>
+                                                  </form> 
+    <img class="memory_img" height=auto width=320px src="[% image_url %]"/> 
     <div class="w-form-done">
       <p>Thank you! Your submission has been received!</p>
     </div>

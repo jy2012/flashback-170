@@ -1,17 +1,15 @@
 .pic {
-    padding: 1px;
+    
     float: left;
-    position: relative;
-    width: 220px;
-   
+    width: 80px;
+    height: 80px;
+    border: thin black ridge;
 
   
      
-           border: 10px solid #fff;
-           border-bottom: 45px solid #fff;
             -webkit-box-shadow: 3px 3px 3px #777;
             -moz-box-shadow: 3px 3px 3px #777;
-            -box-shadow: 3px 3px 3px #777;
+                 box-shadow: 3px 3px 3px #777;
     
 }
 
@@ -429,7 +427,8 @@ p {
 }
 
 .memory_img {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }

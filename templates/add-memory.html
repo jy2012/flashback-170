@@ -28,7 +28,7 @@
 <body class="accntbody">
   <div class="w-nav menubar" data-collapse="tiny" data-animation="default" data-duration="400" data-contain="1">
     <div class="w-container">
-      <nav class="w-nav-menu navmenu" role="navigation"><a class="w-nav-link homelink" href="your-brain.html">Home</a><a class="w-nav-link searchlink" href="search.html">Search</a><a class="w-nav-link settingslink" href="your-settings.html">Settings</a>
+      <nav class="w-nav-menu navmenu" role="navigation"><a class="w-nav-link homelink" href="home.pl">Home</a><a class="w-nav-link searchlink" href="search.html">Search</a><a class="w-nav-link settingslink" href="your-settings.html">Settings</a>
         <a
         class="w-nav-link helplink" href="help-guide.html">Help</a><a class="w-nav-link logoutlink" href="index.html">Log Out</a>
       </nav>
@@ -40,15 +40,6 @@
   </div>
   <h1 class="agecategory">[% age_range %]</h1><hr size="3" noshade color="#6e7b8b">
   
-  <a class="button nav" href="add-memory.pl?age_range=[% age_range %]">Add new memory</a>
-    [% IF images.size > 0 %]
-    [% FOREACH image IN images %] 
-        <a href="edit_memory.pl?image_name=[% image.name %]&age_range=[% age_range %]"><img class="memory_img pic" src="[% image.url %]" /></a>
-    [% END %]
-    [% ELSE %]
-      <h1 class="agecategory">You haven't uploaded any memories!</h1>
-    [% END %]
-    <!--
     <h1 class="agecategory">Add new memory</h1>
     <form class="w-clearfix" name="email-form" data-name="Email Form" data-redirect="/your-brain.html" action="process-add-memory.pl" method="post" enctype="multipart/form-data">
       <input type="hidden" name="age_range" value="[% age_range %]"/>
@@ -58,7 +49,6 @@
       <input class="w-input" type="file" name="photo" />
       <input class="w-button submit_button" type="submit" value="Submit" data-wait="Please wait..."></input>
     </form>
-    -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow.js"></script>
 </body>
